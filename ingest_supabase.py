@@ -332,7 +332,7 @@ def build_chunk_records(pages: List[Dict[str, Any]], document_title: str, settin
             all_items.append({
                 "document_title": document_title,
                 "chunk_text": chunk,
-                "chunk_tokens": len(chunk.split()),
+                # "chunk_tokens": len(chunk.split()),
                 "meta": meta
             })
 
@@ -388,7 +388,7 @@ def ingest_document(path: str, settings: Settings, supabase):
             rows.append({
                 "document_title": item["document_title"],
                 "chunk_text": item["chunk_text"],
-                "chunk_tokens": item["chunk_tokens"],
+                # "chunk_tokens": item["chunk_tokens"],
                 "embedding": emb,
                 "meta": item["meta"]
             })

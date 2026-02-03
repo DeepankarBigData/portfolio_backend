@@ -1,16 +1,14 @@
--- Enable the pgvector extension to work with embedding vectors
+-- Enable pgvector
 create extension if not exists vector;
 
--- Create the chunks table
-create table chunks (
+-- Create chunks table (matches your screenshot)
+create table if not exists public.chunks (
   id bigserial primary key,
+  chunk_id uuid not null default gen_random_uuid(),
+  chunk_hash text,
   document_title text,
   chunk_text text,
-  chunk_tokens int,
-  -- mxbai-embed-large has 1024 dimensions
-  embedding vector(1024),
-  meta jsonb
+  meta jsonb,
+  created_at timestamptz not null default now(),
+  embedding vector(1024)
 );
-
--- Optional: Create an HNSW index for faster similarity search
-create index on chunks using hnsw (embedding vector_cosine_ops);
