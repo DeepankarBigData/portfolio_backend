@@ -6,7 +6,7 @@ python-dotenv==1.2.1
 requests==2.32.5
 # LangChain embeddings with HuggingFace
 langchain==0.1.20
-langchain-huggingface==0.0.16
+langchain-huggingface
 sentence-transformers==3.0.1
 # Commented out: Supabase and database connections
 # psycopg2==2.9.11
