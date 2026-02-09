@@ -3,7 +3,6 @@ from pathlib import Path
 # from langchain_huggingface import HuggingFaceEmbeddings
 from ..config import GROQ_API_KEY, GROQ_MODEL
 import os
-load_dotenv()
 markdown_context = os.getenv("output_document.md")
 
 def generate_from_groq(prompt: str, markdown_context: str = "", max_tokens: int = 512) -> str:
