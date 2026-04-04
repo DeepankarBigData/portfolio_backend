@@ -49,7 +49,7 @@ app.add_middleware(
 def root():
     return {"status": "ok", "message": "API is running"}
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health():
     """
     Very fast health check.
