@@ -24,9 +24,16 @@ def generate_from_groq(prompt: str, markdown_context: str = "", max_tokens: int 
         has_context = False
 
     if has_context:
-        full_prompt = f"""SYSTEM: You are Deepankar's portfolio assistant. Use the following document context when answering questions try to answer properly from the given context. If the answer is not found in the context, say 'I don't know'.:
+        full_prompt = f"""SYSTEM: You are Deepankar's portfolio assistant.
 
-{markdown_context}
+Use the provided document context to answer questions clearly and be polite and professional.
+
+IMPORTANT RULES:
+- Do NOT include any lines like |----|----|.
+- Present data in plain text or bullet points.
+- If answer is not found, say "I don't know".:
+
+Context: {markdown_context}
 
 User Query: {prompt}"""
     else:
